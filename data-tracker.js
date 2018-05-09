@@ -1,15 +1,3 @@
-$(document).on('knack-view-render.view_847', function(event, page) {
-//  hide crumb trail at select locations  
-  setTimeout(
-  function() 
-  {
-   // $('.kn-crumbtrail').remove();
-    //do something special
-  }, 1000);
-
-});
-
-
 $(document).on('knack-page-render.any', function(event, page) {
   // Hide the entire "Repeat" checkbox and label
   $("label:contains('Repeat')").hide();
