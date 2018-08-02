@@ -25,6 +25,7 @@ $(document).on('knack-view-render.view_958', function(event, page) {
 });
 
 
+
 $(document).on('knack-scene-render.scene_428', function(event, page) {
   // update iframe src from detail field
   var iframe_url = $("span:contains('apps/webappviewer')").text();
@@ -76,6 +77,8 @@ function insertRecord(data, scene, view) {
 }
 
 
+
+
 $(document).on('knack-form-submit.view_1440', function(event, view, record) {
   //  prepare "Dispatch Technican" activity to be added on work order create
   //  https://builder.knack.com/atd/amd#pages/scene_428/views/view_1440
@@ -121,6 +124,7 @@ $(document).on('knack-scene-render.any', function() {
 })
 
 
+
 $(document).on('knack-view-render.view_2107', function(event, page) {
   //  replace attachment filename with attachment type
   //  find each attachment cell
@@ -145,7 +149,6 @@ $(document).on('knack-view-render.view_2107', function(event, page) {
   });
     
 });
-
 
 $(document).on('knack-view-render.view_2108', function(event, page) {
   //  replace attachment filename with attachment type
@@ -315,7 +318,7 @@ $(document).on('knack-scene-render.scene_1', function(event, page) {
 
   if (url.indexOf('knack.com') >= 0) {
     
-    window.location.replace('http://transportation.austintexas.io/data-tracker');
+    // window.location.replace('http://transportation.austintexas.io/data-tracker');
 
   }
 });
