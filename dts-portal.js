@@ -38,7 +38,9 @@ $(document).on('knack-view-render.view_76', function(event, page) {
   hideFieldIfNotRole('kn-input-field_91', 'object_5'); // status (defaults to new)
   hideFieldIfNotRole('kn-input-field_96', 'object_5'); // requester account (we set this automatically)
   hideFieldIfNotRole('kn-input-field_97', 'object_5'); // assigned to (set by editors only)
+  hideFieldIfNotRole('kn-input-field_153', 'object_5'); // assigned to (set by editors only)
 });
+
 
 
 
@@ -74,7 +76,7 @@ function customLoginButton(view_id, page_name) {
 
 
 $(document).on('knack-view-render.any', function(event, page) {
-   	//  wrapper to create lare sign-in buttons
+    //  wrapper to create lare sign-in buttons
     // specify "rich text" form elements here
     // the rich text is created on the login page and is a placeholder
     // for the button div, and must link to the appropriate URL name setting
