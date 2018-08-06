@@ -2,7 +2,6 @@ function changeFieldColor(field, color_map){
   var child_field = $(field).find('.kn-detail-body');
   var value = child_field.text()
   if (color_map[value]) {
-    console.log(color_map[value]);
     $(child_field).css({'background-color' : color_map[value].background_color, 'color': color_map[value].color });
   }
 }
@@ -51,4 +50,19 @@ $(document).on('knack-page-render.scene_1', function(event, page) {
     $("#my").append("<a class='big-button' href='https://atd.knack.com/finance-admin#my-purchase-requests/'><div class='big-button-container'><span><i class='fa fa-male'></i></span><span> My Purchase Requests </span></div></a>");
 });
 
+$(document).on('knack-page-render.scene_68', function(event, page) {
+  //  Create big button on review details and replace href
+    $('<div/>', {
+      id: 'viewPR',
+    }).appendTo('#view_247');
+    $("#viewPR").append("<a class='big-button' href='https://atd.knack.com/finance-admin#purchase-requests/'><div class='big-button-container'><span><i class='fa fa-search'></i></span><span> View Request details </span></div></a>");
+    hideDetailsLink("viewPR", "field_11");
+});
+
+
+function hideDetailsLink(dest_id, src_field) {
+    var detailsUrl = $(".kn-link-page").attr("href");
+    $("#" + dest_id).find("a").attr("href", detailsUrl);
+    $(".kn-details-link." + src_field).remove();
+}
 
