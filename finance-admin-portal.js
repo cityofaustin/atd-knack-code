@@ -51,12 +51,18 @@ $(document).on('knack-page-render.scene_1', function(event, page) {
 });
 
 $(document).on('knack-page-render.scene_68', function(event, page) {
-  //  Create big button on review details and replace href
+  // render Review Details page
+  
+  //  Create landing page buttons and set button URL
     $('<div/>', {
       id: 'viewPR',
     }).appendTo('#view_247');
     $("#viewPR").append("<a class='big-button' href='https://atd.knack.com/finance-admin#purchase-requests/'><div class='big-button-container'><span><i class='fa fa-search'></i></span><span> View Request details </span></div></a>");
     hideDetailsLink("viewPR", "field_11");
+  
+  //  Remove unwanted select options from approval authority list
+  $("option[value='8 | Budget Review']").remove();
+  $("option[value='7 | Purchase Review']").remove();
 });
 
 
