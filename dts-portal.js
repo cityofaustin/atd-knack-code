@@ -39,6 +39,8 @@ $(document).on('knack-view-render.view_76', function(event, page) {
   hideFieldIfNotRole('kn-input-field_96', 'object_5'); // requester account (we set this automatically)
   hideFieldIfNotRole('kn-input-field_97', 'object_5'); // assigned to (set by editors only)
   hideFieldIfNotRole('kn-input-field_153', 'object_5'); // assigned to (set by editors only)
+  hideFieldIfNotRole('kn-input-field_178', 'object_5'); // division (set automatically by logged-in account)
+  hideFieldIfNotRole('kn-input-field_179', 'object_5'); // est. level of effort 
 });
 
 
@@ -102,7 +104,11 @@ $(document).on('knack-view-render.view_127', function(event, page) {
 
 $(document).on('knack-view-render.view_128', function(event, page) {
     // create large button on the home page
-    bigButton('service-requests', 'view_128', "https://atd.knack.com/dts#datasets/", "database", "Data Inventory");
+    bigButton('data-inventory', 'view_128', "https://atd.knack.com/dts#datasets/", "database", "Data Inventory");
 });
 
+$(document).on('knack-view-render.view_146', function(event, page) {
+  // create large button on the home page
+    bigButton('team-trello', 'view_146', "https://trello.com/b/pNbgaKme/data-technology-services-operations", "trello", "Operations Board");
+});
 
