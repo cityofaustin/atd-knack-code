@@ -1,9 +1,9 @@
-# transportation-knack-js
-Version control for custom javacsript that lives in Austin Transportation's Knack applications.
+# transportation-knack-code
+Version control for custom JS and CSS that lives in Austin Transportation's Knack applications.
 
 We've built a number of business systems using the workflow management tool, [Knack](http://knack.com/).
 
-Knack supports custom client-side javascript through a text editing interface, but doesn't have any features for version control. This repo serves as version control for our custom Knack scripting. 
+Knack supports custom client-side javascript and CSS through a text editing interface, but doesn't have any features for version control. This repo serves as version control for our custom Knack scripting. 
 
 Unless you work for us, you probably don't care what's here.
 
