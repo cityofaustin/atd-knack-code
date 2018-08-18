@@ -104,6 +104,45 @@ function hideDetailsLink(dest_id, src_field) {
 
 
 
+function customLoginButton(view_id, page_name) {
+  //  special logic to generate URL and clean-up sign in page brefore creating large button
+    
+    // remove default sso login container/button  
+    $('.kn-sso-container').remove();
+
+    var loginForm = $('.login_form').detach();
+    
+    // $('h2.kn-title').remove();
+    $('.kn-description').html('<i>Click below to sign in with your City of Austin email address and password.</i>');
+    
+    var url ="https://atd.knack.com/finance-admin#" + page_name + "/auth/COACD";
+
+    bigButton('big-button-login', view_id, url, 'sign-in', 'Sign-In with COACD');
+
+    $("." + view_id).append(loginForm);
+
+}
+
+
+$(document).on('knack-view-render.any', function(event, page) {
+    //  wrapper to create large sign-in buttons
+    //  the views ojbect uses the view id of the login form element as each key
+    //  and the page url of the login page's **chile page** as the value
+    var views = {
+        'view_39' : 'home',
+        'view_5' : 'purchase-requests',
+        'view_82' : 'purchasing-budget-review',
+        'view_52' : 'account-administration',
+        'view_322' : 'commodity-codes'
+    }
+
+    if (page.key in views) {
+        customLoginButton(page.key, views[page.key]);    
+    }
+    
+});
+
+
 // --- Begin Item Copying ---
 $(document).on('knack-view-render.view_315', function(event, view) {
     // automatically submit 'copy' form when modal renders
