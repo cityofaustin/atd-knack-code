@@ -27,28 +27,52 @@ $(document).on('knack-scene-render.any', function() {
 });
   
 
-$(document).on('knack-page-render.scene_1', function(event, page) {
-  //  Create landing page buttons
-    $('<div/>', {
-      id: 'all',
-    }).appendTo('#view_167');
-
-    $('<div/>', {
-      id: 'create',
-    }).appendTo('#view_167');
+function bigButton(div_id, view_id, url, fa_icon, button_label) {
+  // create a large button
+  
+    $("<div/>", {
+      id: div_id,
+    }).appendTo("#" + view_id);
     
-    $('<div/>', {
-      id: 'review',
-    }).appendTo('#view_167');
+  $("#" + div_id).append("<a class='big-button' href='" + url + "'><div class='big-button-container'><span><i class='fa fa-" + fa_icon + "'></i></span><span> " + button_label + "</span></div></a>");
 
-    $('<div/>', {
-      id: 'my',
-    }).appendTo('#view_167');
+}
 
-    $("#all").append("<a class='big-button' href='https://atd.knack.com/finance-admin#purchase-requests/'><div class='big-button-container'><span><i class='fa fa-archive'></i></span><span> All Purchase Requests </span></div></a>");
-    $("#create").append("<a class='big-button' href='https://atd.knack.com/finance-admin#new-purchase-requests/'><div class='big-button-container'><span><i class='fa fa-plus-circle'></i></span><span> New Purchase Request </span></div></a>");
-    $("#review").append("<a class='big-button' href='https://atd.knack.com/finance-admin#reviews/'><div class='big-button-container'><span><i class='fa fa-check-square-o'></i></span><span> Review Purchase Requests </span></div></a>");
-    $("#my").append("<a class='big-button' href='https://atd.knack.com/finance-admin#my-purchase-requests/'><div class='big-button-container'><span><i class='fa fa-male'></i></span><span> My Purchase Requests </span></div></a>");
+
+$(document).on('knack-view-render.view_167', function(event, page) {
+  // create large button on the home page
+    bigButton(
+        "all",
+        "view_167",
+        "https://atd.knack.com/finance-admin#purchase-requests/",
+        "archive",
+        "All Purchase Requests"
+    );
+
+    bigButton(
+        "create",
+        "view_167",
+        "https://atd.knack.com/finance-admin#new-purchase-requests/",
+        "plus-circle",
+        "New Purchase Request"
+    );
+
+    bigButton(
+        "review",
+        "view_167",
+        "https://atd.knack.com/finance-admin#reviews/",
+        "check-square-o",
+        "Review Purchase Requests"
+    );
+
+    bigButton(
+        "my",
+        "view_167",
+        "https://atd.knack.com/finance-admin#my-purchase-requests/",
+        "male",
+        "My Purchase Requests"
+    );
+
 });
 
 $(document).on('knack-page-render.scene_68', function(event, page) {
