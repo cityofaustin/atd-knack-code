@@ -1,28 +1,40 @@
-function changeFieldColor(field, color_map){
-  var child_field = $(field).find('.kn-detail-body');
+function changeFieldColor(fieldClass, color_map){
+  var child_field = $(fieldClass).find('.kn-detail-body');
   var value = child_field.text()
   if (color_map[value]) {
     $(child_field).css({'background-color' : color_map[value].background_color, 'color': color_map[value].color });
   }
 }
 
+
+function insertIcon(fieldClass, icon_map){
+  var child_field = $(fieldClass).find('.kn-detail-body');
+  var value = child_field.text()
+  console.log(value);
+  var elem = $(".kn-detail" + fieldClass).find(".kn-detail-body").find("span")[0];
+
+  $(elem).before("<span> <i class='fa fa-" + icon_map[value].icon + "'></i> </span>");
+}
+
+
 var colorMapOne = {
-   "Not Submitted" : { "background_color" : "#ff9b9c", "color" : "#fff" },
-   "Returned" : { "background_color" : "#ff9b9c", "color" : "#fff" },
-   "Rejected" : { "background_color" : "#6a6565", "color" : "#fff" },
-   "Cancelled" : { "background_color" : "#6a6565", "color" : "#fff" },
-   "Waiting for Approval": { "background_color" : "#377eb8", "color" : "#fff" },
-    "Purchase Review" : { "background_color" : "#41ae76", "color" : "#fff" },
-    "Budget Review" : { "background_color" : "#41ae76", "color" : "#fff" },
-    "Processing | Purchasing" : { "background_color" : "#41ae76", "color" : "#fff" },
-    "Pending Invoice" : { "background_color" : "#f5901f", "color" : "#fff" },
-    "Processing | Accounts Payable" : { "background_color" : "#41ae76", "color" : "#fff" },
-    "Closed" : { "background_color" : "#ffffff", "color" : "#000" },
+   "Not Submitted" : { "background_color" : "#ff9b9c", "color" : "#fff", 'icon': null },
+   "Returned" : { "background_color" : "#ff9b9c", "color" : "#fff", 'icon': null },
+   "Rejected" : { "background_color" : "#6a6565", "color" : "#fff", 'icon': null },
+   "Cancelled" : { "background_color" : "#6a6565", "color" : "#fff", 'icon': null },
+   "Waiting for Approval": { "background_color" : "#377eb8", "color" : "#fff", 'icon': null },
+    "Purchase Review" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': 'clipboard' },
+    "Budget Review" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': 'money' },
+    "Processing | Purchasing" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': 'cogs' },
+    "Pending Invoice" : { "background_color" : "#f5901f", "color" : "#fff", 'icon': 'clock-o' },
+    "Processing | Accounts Payable" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': 'credit-card' },
+    "Closed" : { "background_color" : "#ffffff", "color" : "#000", 'icon': 'check-circle' },
 }
 
 $(document).on('knack-scene-render.any', function() {
   //  work orders signs/markings status
   changeFieldColor('.field_17', colorMapOne);
+  insertIcon('.field_17', colorMapOne);
   
 });
   
