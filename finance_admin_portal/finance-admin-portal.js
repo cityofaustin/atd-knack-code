@@ -17,7 +17,7 @@ var colorMapOne = {
     "Processing | Purchasing" : { "background_color" : "#41ae76", "color" : "#fff" },
     "Pending Invoice" : { "background_color" : "#f5901f", "color" : "#fff" },
     "Processing | Accounts Payable" : { "background_color" : "#41ae76", "color" : "#fff" },
-    "Closed" : { "background_color" : "#ffffff", "color" : "#fff" },
+    "Closed" : { "background_color" : "#ffffff", "color" : "#000" },
 }
 
 $(document).on('knack-scene-render.any', function() {
