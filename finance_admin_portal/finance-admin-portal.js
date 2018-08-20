@@ -154,6 +154,20 @@ $(document).on('knack-view-render.any', function(event, page) {
 });
 
 
+// replace "Add New Option" with custom text
+$(document).on('knack-page-render.any', function(event, view) {
+
+  var addNew = $("#kn-input-field_217")
+    .find(".kn-add-option")
+    .html("<i class='fa fa-plus-circle'></i> Add New Vendor | ")
+    .removeClass('kn-add-option')
+    .detach();
+
+  $("#kn-input-field_217").find(".kn-instructions").find("a").before(addNew);
+
+});
+
+
 // --- Begin Item Copying ---
 $(document).on('knack-view-render.view_315', function(event, view) {
     // automatically submit 'copy' form when modal renders
@@ -162,12 +176,15 @@ $(document).on('knack-view-render.view_315', function(event, view) {
 
 $(document).on('knack-form-submit.view_315', function(event, view, record) {
     // Insert a copy of an item to the same purchase request
+
     var formUrl = "https://api.knack.com/v1/pages/scene_123/views/view_316/records/";
 
     // url where to redirect to on record insert success
     var redirectUrl = "https://atd.knack.com/finance-admin#purchase-requests/purchase-request-details/";
     
     // grab ID of purchase request and append it to redirect URL
+    console.log(record.field_20_raw);
+
     redirectUrl = redirectUrl + record.field_20_raw[0].id;
 
     console.log(redirectUrl);
