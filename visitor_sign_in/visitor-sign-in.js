@@ -36,7 +36,7 @@ $(document).on('knack-view-render.view_23', function(event, view, data) {
 });
 
 
-// ** Toomey Rd Home Page **
+// ** Barton Oaks (Formerly Toomey Rd) Home Page **
 $(document).on('knack-view-render.view_26', function(event, view, data) {
 
     $('<div/>', {
@@ -48,8 +48,8 @@ $(document).on('knack-view-render.view_26', function(event, view, data) {
     }).appendTo('#view_26');
     
     // add url parameter so that location is set automatically 
-    $("#sign-in").append("<a href='https://atd.knack.com/atd-visitor-log#sign-in/?view_8_vars=%7B%22field_6%22%3A%22Toomey Rd%22%7D'><div class='big-button-container'><span><i class='fa fa-angle-double-right sign-in-icon'></i></span><span> Sign In </span></div></a>");
-    $("#sign-out").append("<a href='https://atd.knack.com/atd-visitor-log#sign-out-toomey/'><div class='big-button-container'><span> Sign Out </span><span><i class='fa fa-angle-double-right sign-in-icon'></span></i></div></a>");
+    $("#sign-in").append("<a href='https://atd.knack.com/atd-visitor-log#sign-in/?view_8_vars=%7B%22field_6%22%3A%22Barton Oaks%22%7D'><div class='big-button-container'><span><i class='fa fa-angle-double-right sign-in-icon'></i></span><span> Sign In </span></div></a>");
+    $("#sign-out").append("<a href='https://atd.knack.com/atd-visitor-log#sign-out-barton-oaks/'><div class='big-button-container'><span> Sign Out </span><span><i class='fa fa-angle-double-right sign-in-icon'></span></i></div></a>");
 
 });
 
@@ -59,7 +59,7 @@ $(document).on('knack-view-render.view_31', function(event, view, data) {
 
   // redirect after 3 seconds
   window.setTimeout(function() {
-      window.location.href = 'https://atd.knack.com/atd-visitor-log#home-toomey/';
+      window.location.href = 'https://atd.knack.com/atd-visitor-log#home-barton-oaks/';
   }, 3000);
   
 });
