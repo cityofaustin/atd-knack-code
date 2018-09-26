@@ -95,7 +95,7 @@ $(document).on('knack-page-render.scene_68', function(event, page) {
       "view_247",
       "https://atd.knack.com/finance-admin#purchase-requests/",
       "list-alt",
-      "Request Details"
+      "View Request Details"
   );
 
   hideDetailsLink("viewPR", "field_11");
@@ -240,3 +240,18 @@ function insertRecord(record, url, redirectUrl) {
 
 }
 // --- End Item Copying ---
+
+
+//  redirect to invoice details when invoice created
+//  (mysteriously unable to accomplish this with form submit rule)
+$(document).on('knack-form-submit.view_285', function(event, view, record) {
+  var _id = record.id;  // newly created invoice id
+  var id_pr = record.field_316_raw[0].id; // id of the connected purchase request
+
+  // manually create url of invoice details
+  var url = 'https://atd.knack.com/finance-admin#purchase-requests/purchase-request-details/' + id_pr + '/view-invoice-details/' + _id;
+  window.location = url;
+});
+
+
+
