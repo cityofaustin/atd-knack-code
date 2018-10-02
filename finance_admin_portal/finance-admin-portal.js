@@ -28,6 +28,9 @@ var colorMapOne = {
     "Pending Invoice" : { "background_color" : "#f5901f", "color" : "#fff", 'icon': 'clock-o' },
     "Processing | Accounts Payable" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': 'credit-card' },
     "Closed" : { "background_color" : "#ffffff", "color" : "#000", 'icon': 'check-circle' },
+    "Unpaid" : { "background_color" : "#ff9b9c", "color" : "#fff", 'icon': null },
+    "Paid" : { "background_color" : "#41ae76", "color" : "#fff", 'icon': null },
+    "Submitted to Accounts Payable" : { "background_color" : "#f5901f", "color" : "#fff", 'icon': null },
 }
 
 $(document).on('knack-scene-render.scene_4', function() {
@@ -55,7 +58,7 @@ $(document).on('knack-view-render.view_167', function(event, page) {
     bigButton(
         "all",
         "view_167",
-        "https://atd.knack.com/finance-admin#purchase-requests/",
+        "https://atd.knack.com/finance-purchasing#purchase-requests/",
         "archive",
         "All Purchase Requests"
     );
@@ -63,7 +66,7 @@ $(document).on('knack-view-render.view_167', function(event, page) {
     bigButton(
         "create",
         "view_167",
-        "https://atd.knack.com/finance-admin#new-purchase-requests/",
+        "https://atd.knack.com/finance-purchasing#new-purchase-requests/",
         "plus-circle",
         "New Purchase Request"
     );
@@ -71,7 +74,7 @@ $(document).on('knack-view-render.view_167', function(event, page) {
     bigButton(
         "review",
         "view_167",
-        "https://atd.knack.com/finance-admin#reviews/",
+        "https://atd.knack.com/finance-purchasing#reviews/",
         "check-square-o",
         "Review Purchase Requests"
     );
@@ -79,7 +82,7 @@ $(document).on('knack-view-render.view_167', function(event, page) {
     bigButton(
         "my",
         "view_167",
-        "https://atd.knack.com/finance-admin#my-purchase-requests/",
+        "https://atd.knack.com/finance-purchasing#my-purchase-requests/",
         "male",
         "My Purchase Requests"
     );
@@ -93,7 +96,7 @@ $(document).on('knack-page-render.scene_68', function(event, page) {
   bigButton(
       "viewPR",
       "view_247",
-      "https://atd.knack.com/finance-admin#purchase-requests/",
+      "https://atd.knack.com/finance-purchasing#purchase-requests/",
       "list-alt",
       "View Request Details"
   );
@@ -126,7 +129,7 @@ function customLoginButton(view_id, page_name) {
     // $('h2.kn-title').remove();
     $('.kn-description').html('<i>Click below to sign in with your City of Austin email address and password.</i>');
     
-    var url ="https://atd.knack.com/finance-admin#" + page_name + "/auth/COACD";
+    var url ="https://atd.knack.com/finance-purchasing#" + page_name + "/auth/COACD";
 
     bigButton('big-button-login', view_id, url, 'sign-in', 'Sign-In with COACD');
 
@@ -180,7 +183,7 @@ $(document).on('knack-form-submit.view_315', function(event, view, record) {
     var formUrl = "https://api.knack.com/v1/pages/scene_123/views/view_316/records/";
 
     // url where to redirect to on record insert success
-    var redirectUrl = "https://atd.knack.com/finance-admin#purchase-requests/purchase-request-details/";
+    var redirectUrl = "https://atd.knack.com/finance-purchasing#purchase-requests/purchase-request-details/";
     
     // grab ID of purchase request and append it to redirect URL
     console.log(record.field_20_raw);
@@ -249,7 +252,7 @@ $(document).on('knack-form-submit.view_285', function(event, view, record) {
   var id_pr = record.field_316_raw[0].id; // id of the connected purchase request
 
   // manually create url of invoice details
-  var url = 'https://atd.knack.com/finance-admin#purchase-requests/purchase-request-details/' + id_pr + '/view-invoice-details/' + _id;
+  var url = 'https://atd.knack.com/finance-purchasing#purchase-requests/purchase-request-details/' + id_pr + '/view-invoice-details/' + _id;
   window.location = url;
 });
 
