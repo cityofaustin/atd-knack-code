@@ -3,7 +3,6 @@ function changeFieldColor(field, color_map){
   var child_field = $(field).find('.kn-detail-body');
   var value = child_field.text()
   if (color_map[value]) {
-    console.log(color_map[value]);
     $(child_field).css({'background-color' : color_map[value].background_color, 'color': color_map[value].color });
   }
 }
@@ -52,7 +51,7 @@ $(document).on('knack-view-render.view_114', function(event, page) {
 });
 
   
-function bigButton(div_id, view_id, url, fa_icon, button_label) {
+function bigButton(div_id, view_id, url, fa_icon, button_label, callback) {
   // create a large button
   
     $("<div/>", {
@@ -61,18 +60,24 @@ function bigButton(div_id, view_id, url, fa_icon, button_label) {
     
   $("#" + div_id).append("<a class='big-button' href='" + url + "'><div class='big-button-container'><span><i class='fa fa-" + fa_icon + "'></i></span><span> " + button_label + "</span></div></a>");
 
+  if(callback) callback();
 }
+
 
 function customLoginButton(view_id, page_name) {
   //  special logic to generate URL and clean-up sign in page brefore creating large button
-    $('.kn-sso-container').remove();
-    $('.login_form').remove();
-    $('h2.kn-title').remove();
-    $('.kn-description').html('<i>Click below to sign in with your City of Austin email address and password.</i>');
+    $('.kn-sso-container').hide();
+    $('.login_form').hide();
+
+    $('h2.kn-title').hide();
     
     var url ="https://atd.knack.com/dts#" + page_name + "/auth/COACD";
 
-    bigButton('big-button-login', view_id, url, 'sign-in', 'Sign-In');
+    bigButton('caocd-button-login', view_id, url, 'sign-in', 'Sign-In');
+
+    bigButton('non-coacd-button-login', view_id, "javascript:void(0)", 'sign-in', 'Sign-In (Non-COA)', function(divId='non-coacd-button-login') {
+      setClickEvent(divId, showHideElements, ".login_form", ".big-button-container");
+    });
 
 }
 
@@ -112,3 +117,14 @@ $(document).on('knack-view-render.view_146', function(event, page) {
     bigButton('team-trello', 'view_146', "https://trello.com/b/pNbgaKme/data-technology-services-operations", "trello", "Operations Board");
 });
 
+function setClickEvent(divId, func, param1, param2) {
+  // TODO make these args less weird
+  $("#" + divId).click(function(){
+    func(param1, param2);
+  })
+}
+
+function showHideElements(showSelector, hideSelector) {
+  $(showSelector).show();
+  $(hideSelector).hide();
+}
