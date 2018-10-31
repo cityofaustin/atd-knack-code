@@ -364,5 +364,12 @@ $(document).on('knack-view-render.view_1206', function(event, scene) {
     });
 });
 
+$(document).on('knack-view-render.view_1996', function(event, scene) {
+    $( "#field_119" ).keyup(function() {
+        var trimmed = $( "#field_119" ).val().trim();
+        $( "#field_119" ).val(trimmed);
+    });
+});
+
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
