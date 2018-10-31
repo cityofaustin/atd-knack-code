@@ -12,16 +12,55 @@
     cursor: pointer;
 }
  
+.small-button-container {
+  padding: 5px;
+  margin: 20px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 2px 0px gray;
+  font-size: 1em;
+  max-width: 15em;
+  background-color: #babbbc;
+  color: white;
+}
+
+.small-button-container:hover {
+    background-color: #4c4c4c;
+    cursor: pointer;
+}
  
 .fa {
 vertical-align: middle;
 }
  
- 
 a.big-button {
+  text-decoration: none;
+}
+ 
+ a.small-button {
   text-decoration: none;
 }
  
 .kn-input-name input, .kn-input-address input{
                 text-transform: uppercase;
+}
+
+#view_117 > div > a.kn-link.kn-link-2.kn-link-page.kn-button{
+  background-color: #1A3D6B;
+  color: #ffffff;
+}
+#view_278 > div > a{
+  background-color: #1A3D6B;
+  color: #ffffff;
+}
+#view_271 > div > a{
+  background-color: #1A3D6B;
+  color: #ffffff;
+}
+#view_292 > div > a{
+  background-color: #1A3D6B;
+  color: #ffffff;
+}
+#view_301 > div > a{
+  background-color: #1A3D6B;
+  color: #ffffff;
 }
