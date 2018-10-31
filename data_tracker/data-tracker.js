@@ -344,7 +344,6 @@ $(document).on('knack-view-render.view_1199', function(event, scene) {
 });
 
 $(document).on('knack-view-render.view_1200', function(event, scene) {
-    console.log("HI!");
     $( "#field_119" ).keyup(function() {
         var trimmed = $( "#field_119" ).val().trim();
         $( "#field_119" ).val(trimmed);
@@ -352,7 +351,6 @@ $(document).on('knack-view-render.view_1200', function(event, scene) {
 });
 
 $(document).on('knack-view-render.view_1207', function(event, scene) {
-    console.log("HI!");
     $( "#field_119" ).keyup(function() {
         var trimmed = $( "#field_119" ).val().trim();
         $( "#field_119" ).val(trimmed);
@@ -360,7 +358,6 @@ $(document).on('knack-view-render.view_1207', function(event, scene) {
 });
 
 $(document).on('knack-view-render.view_1206', function(event, scene) {
-    console.log("HI!");
     $( "#field_119" ).keyup(function() {
         var trimmed = $( "#field_119" ).val().trim();
         $( "#field_119" ).val(trimmed);
