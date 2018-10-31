@@ -298,7 +298,6 @@ $(document).on('knack-view-render.view_1880', function(event, page) {
   setRequester();
 });
 
-
 $(document).on('knack-scene-render.scene_713', function(event, page) {
   // remove "signs" dropdown from workgroup selection choices based when work order type is markings
   var workType = $('.field_2292 .kn-value').text().toUpperCase();
@@ -322,3 +321,51 @@ $(document).on('knack-scene-render.scene_1', function(event, page) {
 
   }
 });
+
+
+// remove empty "select..." choices from advanced signal search
+$(document).on('knack-view-render.view_1169', function(event, page) {
+  // id*="_moComments_"
+  // $("#kn_filter_7_field_1513_chzn_c_0").remove();
+  // $("#kn_filter_8_field_491_chzn_c_0").remove();
+  // $("#kn_filter_4_field_2437_chzn_c_0").remove();
+
+});
+
+
+//////////////////////////////////////////////////
+// Remove whitespace from street segment inputs///
+//////////////////////////////////////////////////
+$(document).on('knack-view-render.view_1199', function(event, scene) {
+    $( "#field_119" ).keyup(function() {
+        var trimmed = $( "#field_119" ).val().trim();
+        $( "#field_119" ).val(trimmed);
+    });
+});
+
+$(document).on('knack-view-render.view_1200', function(event, scene) {
+    console.log("HI!");
+    $( "#field_119" ).keyup(function() {
+        var trimmed = $( "#field_119" ).val().trim();
+        $( "#field_119" ).val(trimmed);
+    });
+});
+
+$(document).on('knack-view-render.view_1207', function(event, scene) {
+    console.log("HI!");
+    $( "#field_119" ).keyup(function() {
+        var trimmed = $( "#field_119" ).val().trim();
+        $( "#field_119" ).val(trimmed);
+    });
+});
+
+$(document).on('knack-view-render.view_1206', function(event, scene) {
+    console.log("HI!");
+    $( "#field_119" ).keyup(function() {
+        var trimmed = $( "#field_119" ).val().trim();
+        $( "#field_119" ).val(trimmed);
+    });
+});
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
