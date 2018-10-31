@@ -41,50 +41,62 @@ $(document).on('knack-scene-render.scene_4', function() {
 });
   
 
-function bigButton(div_id, view_id, url, fa_icon, button_label) {
-  // create a large button
+
+
+function customButton(div_id, view_id, url, fa_icon, button_label, button_class, container_class, callback) {
+  // create a custom button
   
     $("<div/>", {
       id: div_id,
     }).appendTo("#" + view_id);
     
-  $("#" + div_id).append("<a class='big-button' href='" + url + "'><div class='big-button-container'><span><i class='fa fa-" + fa_icon + "'></i></span><span> " + button_label + "</span></div></a>");
+  $("#" + div_id).append("<a class='" + button_class + "' href='" + url + "'><div class='" + container_class + "'><span><i class='fa fa-" + fa_icon + "'></i></span><span> " + button_label + "</span></div></a>");
 
+  if(callback) callback();
 }
+
 
 
 $(document).on('knack-view-render.view_167', function(event, page) {
   // create large button on the home page
-    bigButton(
+    customButton(
         "all",
         "view_167",
         "https://atd.knack.com/finance-purchasing#purchase-requests/",
         "archive",
-        "All Purchase Requests"
+        "All Purchase Requests",
+        "big-button",
+        "big-button-container"
     );
 
-    bigButton(
+    customButton(
         "create",
         "view_167",
         "https://atd.knack.com/finance-purchasing#new-purchase-requests/",
         "plus-circle",
-        "New Purchase Request"
+        "New Purchase Request",
+        "big-button",
+        "big-button-container"
     );
 
-    bigButton(
+    customButton(
         "review",
         "view_167",
         "https://atd.knack.com/finance-purchasing#reviews/",
         "check-square-o",
-        "Review Purchase Requests"
+        "Review Purchase Requests",
+        "big-button",
+        "big-button-container"
     );
 
-    bigButton(
+    customButton(
         "my",
         "view_167",
         "https://atd.knack.com/finance-purchasing#my-purchase-requests/",
         "male",
-        "My Purchase Requests"
+        "My Purchase Requests",
+        "big-button",
+        "big-button-container"
     );
 
 });
@@ -93,12 +105,14 @@ $(document).on('knack-page-render.scene_68', function(event, page) {
   // render Review Details page
   
   //  Create big PR details button and hide the small link
-  bigButton(
+  customButton(
       "viewPR",
       "view_247",
       "https://atd.knack.com/finance-purchasing#purchase-requests/",
       "list-alt",
-      "View Request Details"
+      "View Request Details",
+      "big-button",
+      "big-button-container"
   );
 
   hideDetailsLink("viewPR", "field_11");
@@ -120,23 +134,52 @@ function hideDetailsLink(dest_id, src_field) {
 
 function customLoginButton(view_id, page_name) {
   //  special logic to generate URL and clean-up sign in page brefore creating large button
-    
-    // remove default sso login container/button  
-    $('.kn-sso-container').remove();
+    $('.kn-sso-container').hide();
 
-    var loginForm = $('.login_form').detach();
-    
-    // $('h2.kn-title').remove();
-    $('.kn-description').html('<i>Click below to sign in with your City of Austin email address and password.</i>');
+    $('.login_form').hide();
+
+    $('h2.kn-title').hide();
     
     var url ="https://atd.knack.com/finance-purchasing#" + page_name + "/auth/COACD";
 
-    bigButton('big-button-login', view_id, url, 'sign-in', 'Sign-In with COACD');
+    customButton(
+      'caocd-button-login',
+      view_id, url,
+      'sign-in',
+      'Sign-In',
+      "big-button",
+      "big-button-container"
+    );
 
-    $("." + view_id).append(loginForm);
-
+    customButton(
+      'non-coacd-button-login',
+      view_id,
+      "javascript:void(0)",
+      'lock',
+      'Non-COA Sign-In',
+      "small-button",
+      "small-button-container",
+      function(divId='non-coacd-button-login') {
+        setClickEvent(
+          divId,
+          showHideElements,
+          ".login_form",
+          ".small-button-container,.big-button-container"
+        );
+      });
 }
 
+function setClickEvent(divId, func, param1, param2) {
+  // TODO make these args less weird
+  $("#" + divId).click(function(){
+    func(param1, param2);
+  })
+}
+
+function showHideElements(showSelector, hideSelector) {
+  $(showSelector).show();
+  $(hideSelector).hide();
+}
 
 $(document).on('knack-view-render.any', function(event, page) {
     //  wrapper to create large sign-in buttons
@@ -147,7 +190,11 @@ $(document).on('knack-view-render.any', function(event, page) {
         'view_5' : 'purchase-requests',
         'view_82' : 'purchasing-budget-review',
         'view_52' : 'account-administration',
-        'view_322' : 'commodity-codes'
+        'view_322' : 'commodity-codes',
+        'view_31' : 'reviews',
+        'view_387' : 'invoice-details',
+        'view_379' : 'add-invoice',
+        'view_77' : 'my-purchase-requests'
     }
 
     if (page.key in views) {
@@ -201,6 +248,7 @@ $(document).on('knack-form-submit.view_315', function(event, view, record) {
         'field_105_raw', // fund
         'field_103_raw', // unit
         'field_104_raw', // object
+        'field_357_raw'
     ];
 
     // reduce object to specified fields
