@@ -40,9 +40,9 @@ $(document).on('knack-view-render.view_76', function(event, page) {
   hideFieldIfNotRole('kn-input-field_153', 'object_5'); // assigned to (set by editors only)
   hideFieldIfNotRole('kn-input-field_178', 'object_5'); // division (set automatically by logged-in account)
   hideFieldIfNotRole('kn-input-field_179', 'object_5'); // est. level of effort 
+  hideFieldIfNotRole('kn-input-field_100', 'object_5'); // close date
+  hideFieldIfNotRole('kn-input-field_107', 'object_5'); // request type
 });
-
-
 
 
 $(document).on('knack-view-render.view_114', function(event, page) {
