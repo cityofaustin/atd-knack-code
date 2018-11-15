@@ -134,17 +134,6 @@ function showHideElements(showSelector, hideSelector) {
   $(hideSelector).hide();
 }
 
-function bigButton(div_id, view_id, url, fa_icon, button_label) {
-  // create a large button
-  
-    $("<div/>", {
-      id: div_id,
-    }).appendTo("#" + view_id);
-    
-  $("#" + div_id).append("<a class='big-button' href='" + url + "'><div class='big-button-container'><span><i class='fa fa-" + fa_icon + "'></i></span><span> " + button_label + "</span></div></a>");
-
-}
-
 
 $(document).on('knack-view-render.view_176', function(event, page) {
   // create large button on the home page
