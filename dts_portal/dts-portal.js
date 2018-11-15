@@ -42,6 +42,7 @@ $(document).on('knack-view-render.view_76', function(event, page) {
   hideFieldIfNotRole('kn-input-field_179', 'object_5'); // est. level of effort 
   hideFieldIfNotRole('kn-input-field_100', 'object_5'); // close date
   hideFieldIfNotRole('kn-input-field_107', 'object_5'); // request type
+  hideFieldIfNotRole('kn-input-field_186', 'object_5'); // dataset
 });
 
 
