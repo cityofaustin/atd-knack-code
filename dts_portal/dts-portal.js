@@ -116,6 +116,11 @@ $(document).on('knack-view-render.view_146', function(event, page) {
   // create large button on the home page
     bigButton('team-trello', 'view_146', "https://trello.com/b/pNbgaKme/data-technology-services-operations", "trello", "Operations Board");
 });
+  $(document).on('knack-view-render.view_177', function(event, page) {
+  // create large button on the home page
+    bigButton('technician-equipment-tracker', 'view_177', "https://atd.knack.com/dts#technician-equipment-tracker/", "wrench", "Techncian Equipment Tracker");
+  
+});
 
 function setClickEvent(divId, func, param1, param2) {
   // TODO make these args less weird
@@ -128,3 +133,17 @@ function showHideElements(showSelector, hideSelector) {
   $(showSelector).show();
   $(hideSelector).hide();
 }
+
+
+$(document).on('knack-view-render.view_176', function(event, page) {
+  // create large button on the home page
+    bigButton(
+        "all",
+        "view_176",
+        "https://atd.knack.com/dts#technician-equipment-tracker/",
+        "wrench",
+        "Technician Equipment Tracker"
+
+    );
+
+});
