@@ -13,7 +13,7 @@ https://github.com/cityofaustin/transportation-knack-code
 
 6. Choose the option "Create a new branch for this commit"...
 
-7. Give the new branch a meaningfull name, then click "Propose File Change"
+7.  Give the new branch a meaningful name, then click "Propose File Change"
 
 8. On the next screen, confirm your pull request by clicking the green "Create Pull Request" button.
 
