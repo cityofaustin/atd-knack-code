@@ -9,8 +9,9 @@ function changeFieldColor(field, color_map){
 
 
 var colorMapOne = {
-   'New' : { "background_color" : "#fb9a99", "color" : "#000" },
+   'New' : { "background_color" : "#fb9a99", "color" : "#fff" },
    'In Progress': { "background_color" : "#1f78b4", "color" : "#fff" },
+   'Backlog': { "background_color" : "#a8a8a8", "color" : "#fff" },
 }
 
 $(document).on('knack-scene-render.any', function() {
@@ -43,8 +44,12 @@ $(document).on('knack-view-render.view_76', function(event, page) {
   hideFieldIfNotRole('kn-input-field_100', 'object_5'); // close date
   hideFieldIfNotRole('kn-input-field_107', 'object_5'); // request type
   hideFieldIfNotRole('kn-input-field_186', 'object_5'); // dataset
+  hideFieldIfNotRole('kn-input-field_294', 'object_5'); // service group
 });
 
+$(document).on('knack-view-render.view_129', function(event, page) {
+  hideFieldIfNotRole('kn-input-field_295', 'object_5'); // time spent
+});
 
 $(document).on('knack-view-render.view_114', function(event, page) {
   // hide "Assigned to Me" service request table
