@@ -7,7 +7,7 @@ $(document).on('knack-view-render.view_8', function(event, view, data) {
 })
 
 
-// ** LCRA Home Page **
+// ** New Toomey Home Page **
 $(document).on('knack-view-render.view_13', function(event, view, data) {
 
     $('<div/>', {
@@ -19,13 +19,13 @@ $(document).on('knack-view-render.view_13', function(event, view, data) {
     }).appendTo('#view_13');
     
     // add url parameter so that location is set automatically 
-    $("#sign-in").append("<a href='https://atd.knack.com/atd-visitor-log#sign-in/?view_8_vars=%7B%22field_6%22%3A%22LCRA%22%7D'><div class='big-button-container'><span><i class='fa fa-angle-double-right sign-in-icon'></i></span><span> Sign In </span></div></a>");
+    $("#sign-in").append("<a href='https://atd.knack.com/atd-visitor-log#sign-in/?view_8_vars=%7B%22field_6%22%3A%22Toomey Rd%22%7D'><div class='big-button-container'><span><i class='fa fa-angle-double-right sign-in-icon'></i></span><span> Sign In </span></div></a>");
     $("#sign-out").append("<a href='https://atd.knack.com/atd-visitor-log#sign-out/'><div class='big-button-container'><span> Sign Out </span><span><i class='fa fa-angle-double-right sign-in-icon'></span></i></div></a>");
 
 });
 
 
-// ** LCRA Sign-Out **
+// ** New Toomey Sign out Sign-Out **
 $(document).on('knack-view-render.view_23', function(event, view, data) {
 
   // Redirect after 3 seconds
@@ -36,7 +36,7 @@ $(document).on('knack-view-render.view_23', function(event, view, data) {
 });
 
 
-// ** Barton Oaks (Formerly Toomey Rd) Home Page **
+// ** Toomey Rd Home Page **
 $(document).on('knack-view-render.view_26', function(event, view, data) {
 
     $('<div/>', {
@@ -60,6 +60,35 @@ $(document).on('knack-view-render.view_31', function(event, view, data) {
   // redirect after 3 seconds
   window.setTimeout(function() {
       window.location.href = 'https://atd.knack.com/atd-visitor-log#home-barton-oaks/';
+  }, 3000);
+  
+});
+
+
+// ** 8700 Cameron Home Page **
+$(document).on('knack-view-render.view_58', function(event, view, data) {
+
+    $('<div/>', {
+      id: 'sign-in',
+    }).appendTo('#view_58');
+
+    $('<div/>', {
+      id: 'sign-out',
+    }).appendTo('#view_58');
+    
+    // add url parameter so that location is set automatically 
+    $("#sign-in").append("<a href='https://atd.knack.com/atd-visitor-log#sign-in/?view_8_vars=%7B%22field_6%22%3A%228700 Cameron Rd%22%7D'><div class='big-button-container'><span><i class='fa fa-angle-double-right sign-in-icon'></i></span><span> Sign In </span></div></a>");
+    $("#sign-out").append("<a href='https://atd.knack.com/atd-visitor-log#sign-out-8700-cameron/'><div class='big-button-container'><span> Sign Out </span><span><i class='fa fa-angle-double-right sign-in-icon'></span></i></div></a>");
+
+});
+
+
+// ** 8700 Cameron Sign-Out **
+$(document).on('knack-view-render.view_64', function(event, view, data) {
+
+  // redirect after 3 seconds
+  window.setTimeout(function() {
+      window.location.href = 'https://atd.knack.com/atd-visitor-log#home-8700-cameron/';
   }, 3000);
   
 });
