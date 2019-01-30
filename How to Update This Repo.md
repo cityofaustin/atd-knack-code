@@ -15,6 +15,6 @@ https://github.com/cityofaustin/transportation-knack-code
 
 7.  Give the new branch a meaningful name, then click "Propose File Change"
 
-8. On the next screen, confirm your pull request by clicking the green "Create Pull Request" button.
+8. On the next screen, confirm your pull request by clicking the green "Create pull request" button.
 
 9. Lastly, you should assign a reviewer to check your code. On the right side of the page find the cog icon next to reviewers, and select one of your colleagues to review the code.
